@@ -25,10 +25,12 @@ public class FluidStateManager {
 			ChunkStatus.FULL,
 			false
 		);
-		if (chunk == null) {
-			return null;
-		}
-		final ChunkFluidData fluidData = ((LevelChunkDuck) (chunk)).vs$getFluidData();
+		return getFluidData(chunk, pos);
+	}
+
+	public static FluidData getFluidData(final ChunkAccess chunk, final BlockPos pos) {
+		if (chunk == null) return null;
+		final ChunkFluidData fluidData = ((LevelChunkDuck) chunk).vs$getFluidData();
 		return fluidData.getFluidData(pos);
 	}
 
